@@ -67,11 +67,27 @@ header {
 .nav-links a { text-decoration: none; color: var(--ink-soft); font-size: 0.92rem; font-weight: 500; padding-bottom: 2px; border-bottom: 2px solid transparent; }
 .nav-links a:hover, .nav-links a.active { color: var(--ochre); border-bottom-color: var(--ochre); }
 
-/* === Hero === */
-.hero { background: var(--bg); color: var(--ink); padding: 5.5rem 0 4rem; border-bottom: 1px solid var(--rule); }
+/* === Hero (split: text + Shakespeare bust) === */
+.hero { background: var(--bg); color: var(--ink); border-bottom: 1px solid var(--rule); }
+.hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3rem; align-items: stretch; max-width: var(--max); margin: 0 auto; padding: 0 1.6rem; }
+.hero-text { padding: 5.5rem 0 4rem; display: flex; flex-direction: column; justify-content: center; }
 .hero .eyebrow { display: block; margin-bottom: 1.2rem; }
 .hero h1 { max-width: 16ch; }
 .hero p { max-width: 46ch; color: var(--ink-soft); font-size: 1.18rem; margin-top: 1.4rem; }
+.hero-media {
+  position: relative;
+  display: flex; align-items: flex-end; justify-content: center;
+  background: linear-gradient(160deg, #efece6 0%, #e4ded4 100%);
+  border-left: 1px solid var(--rule); border-right: 1px solid var(--rule);
+}
+.hero-media img { display: block; max-height: 460px; width: auto; max-width: 100%; }
+
+@media (max-width: 820px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 0; }
+  .hero-text { padding: 3.5rem 0 2rem; order: 1; }
+  .hero-media { order: 2; padding-top: 2rem; border-left: none; border-right: none; border-top: 1px solid var(--rule); }
+  .hero-media img { max-height: 340px; }
+}
 
 /* === About body === */
 .about .lede { font-size: 1.3rem; max-width: 52ch; color: var(--ink); font-family: 'Fraunces', Georgia, serif; font-weight: 400; line-height: 1.45; }
@@ -115,10 +131,15 @@ footer .mono { color: rgba(255,255,255,0.55); }
 </header>
 
 <section class="hero">
-  <div class="wrap">
-    <span class="mono eyebrow">About</span>
-    <h1>A lab where science and the arts meet.</h1>
-    <p>We bring researchers and artists into one space to study, design, and deliver programming that measurably improves brain, body, and mental health.</p>
+  <div class="hero-grid">
+    <div class="hero-text">
+      <span class="mono eyebrow">About</span>
+      <h1>A lab where science and the arts meet.</h1>
+      <p>We bring researchers and artists into one space to study, design, and deliver programming that measurably improves brain, body, and mental health.</p>
+    </div>
+    <div class="hero-media">
+      <img src="images/shakespeare-bust.jpg" alt="A white porcelain bust of William Shakespeare on a pedestal.">
+    </div>
   </div>
 </section>
 
