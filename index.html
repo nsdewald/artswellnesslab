@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Arts Wellness Lab — Art as evidence-based medicine for brain, body & mind</title>
+<meta name="description" content="The first community-based facility where scientists and artists collaborate to research and create evidence-based programming that harnesses the power of art to measurably improve brain, body, and mental health.">
+<meta name="theme-color" content="#b3741a">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+/* === Tokens (Harvard-inspired: ochre on white, academic + arts) === */
+:root {
+  --ochre: #b3741a;
+  --ochre-dark: #8f5c12;
+  --bg: #ffffff;
+  --bg-alt: #f6f4f0;
+  --ink: #1d1d1f;
+  --ink-soft: #4d4d52;
+  --rule: #e4ded4;
+  --max: 1140px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; margin: 0 0 0.4em; line-height: 1.08; font-weight: 600; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); font-weight: 500; }
+h2 { font-size: clamp(1.9rem, 4vw, 2.9rem); }
+h3 { font-size: 1.3rem; }
+p { margin: 0 0 1em; }
+a { color: inherit; }
+.mono {
+  font-family: 'JetBrains Mono', monospace; letter-spacing: 0.12em;
+  text-transform: uppercase; font-size: 0.74rem; color: var(--ochre); font-weight: 500;
+}
+.sr-only { position: absolute; left: -9999px; }
+
+/* === Layout helpers === */
+.wrap { max-width: var(--max); margin: 0 auto; padding-left: 1.6rem; padding-right: 1.6rem; }
+section { padding: 6rem 0; }
+.rule { border: none; border-top: 1px solid var(--rule); max-width: var(--max); margin: 0 auto; }
+
+/* === Header === */
+header {
+  background: var(--bg);
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  position: sticky; top: 0; z-index: 10;
+}
+.brandbar { height: 5px; background: var(--ochre); }
+.nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.15rem 1.6rem; max-width: var(--max); margin: 0 auto;
+}
+.logo { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 1.3rem; text-decoration: none; color: var(--ink); letter-spacing: -0.01em; }
+.nav-links { display: flex; gap: 1.8rem; align-items: center; }
+.nav-links a { text-decoration: none; color: var(--ink-soft); font-size: 0.92rem; font-weight: 500; padding-bottom: 2px; border-bottom: 2px solid transparent; }
+.nav-links a:hover, .nav-links a.active { color: var(--ochre); border-bottom-color: var(--ochre); }
+
+/* === Hero (full-bleed image with scrim) === */
+.hero {
+  position: relative;
+  color: #fff;
+  background-color: #0c0c0e;
+  background-image:
+    linear-gradient(90deg, rgba(10,10,12,0.92) 0%, rgba(10,10,12,0.74) 40%, rgba(10,10,12,0.30) 70%, rgba(10,10,12,0.12) 100%),
+    url('images/hero.png');
+  background-size: cover;
+  background-position: center right;
+  border-bottom: 4px solid var(--ochre);
+  display: flex;
+  align-items: flex-end;
+  min-height: 72vh;
+  padding: 5.5rem 0 4rem;
+}
+.hero .eyebrow { display: block; margin-bottom: 1.2rem; color: #e9cd94; }
+.hero h1 { max-width: 18ch; color: #fff; }
+.hero p { max-width: 46ch; color: rgba(255,255,255,0.9); font-size: 1.18rem; margin-top: 1.4rem; }
+
+/* === Mission / general sections === */
+.mission .lede { font-size: 1.3rem; max-width: 52ch; color: var(--ink); font-family: 'Fraunces', Georgia, serif; font-weight: 400; line-height: 1.45; }
+.mission p:not(.lede) { max-width: 60ch; color: var(--ink-soft); }
+.section-alt { background: var(--bg-alt); }
+
+.pillars { display: grid; gap: 0; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin-top: 3rem; border-top: 1px solid var(--rule); }
+.pillar { padding: 1.8rem 1.6rem 1.8rem 0; border-bottom: 1px solid var(--rule); }
+.pillar .mono { display: block; margin-bottom: 0.6rem; }
+.pillar h3 { margin-bottom: 0.3rem; }
+.pillar p { color: var(--ink-soft); margin: 0; font-size: 0.97rem; }
+
+/* === Goals list (editorial, numbered) === */
+.goals { list-style: none; padding: 0; margin: 3rem 0 0; counter-reset: goal; display: grid; gap: 0; grid-template-columns: repeat(2, 1fr); }
+.goals li {
+  counter-increment: goal; display: flex; gap: 1.1rem; padding: 1.5rem 1.5rem 1.5rem 0;
+  border-top: 1px solid var(--rule);
+}
+.goals li::before {
+  content: counter(goal, decimal-leading-zero);
+  font-family: 'JetBrains Mono', monospace; color: var(--ochre); font-size: 0.9rem;
+  flex-shrink: 0; padding-top: 0.25rem; min-width: 2.4ch; font-weight: 500;
+}
+.goals li p { margin: 0; font-size: 1.02rem; color: var(--ink); }
+
+/* === Quote === */
+.quote-block { background: var(--bg-alt); }
+blockquote { font-family: 'Fraunces', Georgia, serif; font-size: clamp(1.5rem, 3.2vw, 2.2rem); font-weight: 400; font-style: normal; max-width: 28ch; margin: 1.5rem 0 1.2rem; line-height: 1.3; border-left: 3px solid var(--ochre); padding-left: 1.4rem; }
+cite { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-style: normal; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* === CTA / Newsletter === */
+.cta { background: var(--ochre); color: #fff; text-align: center; }
+.cta .mono { color: #e9cd94; }
+.cta h2 { color: #fff; }
+.cta p { max-width: 46ch; margin: 0 auto 1.8rem; color: rgba(255,255,255,0.88); }
+.newsletter-form { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; max-width: 440px; margin: 0 auto; }
+.newsletter-form input {
+  flex: 1; min-width: 200px; padding: 0.85rem 1rem; border: 1px solid rgba(255,255,255,0.45);
+  background: rgba(255,255,255,0.08); color: #fff; border-radius: 2px; font-size: 1rem; font-family: inherit;
+}
+.newsletter-form input::placeholder { color: rgba(255,255,255,0.6); }
+.newsletter-form button {
+  padding: 0.85rem 1.6rem; border: none; border-radius: 2px; background: #fff;
+  color: var(--ochre); font-weight: 600; cursor: pointer; font-size: 1rem; font-family: inherit;
+}
+.newsletter-form button:hover { background: #e9cd94; }
+.form-message { margin-top: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; min-height: 1.2em; color: #e9cd94; }
+
+/* === Footer === */
+footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: 3rem 0; font-size: 0.85rem; }
+footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; align-items: center; }
+footer .mono { color: rgba(255,255,255,0.55); }
+footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+footer a:hover { color: #fff; }
+
+@media (max-width: 700px) {
+  .nav-links { gap: 1.1rem; font-size: 0.85rem; }
+  section { padding: 4rem 0; }
+  .goals { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brandbar"></div>
+  <nav class="nav">
+    <a href="index.html" class="logo">The Arts Wellness Lab</a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Mission</a>
+      <a href="about.html">About</a>
+      <a href="#newsletter">Newsletter</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="mono eyebrow"></span>
+    <h1>Art is medicine.</h1>
+    <p>Where scientists and artists work side by side to research and create evidence-based programming powered by music, theater, dance, visual arts, and writing that measurably improves brain, body, and mental health.</p>
+  </div>
+</section>
+
+<section class="mission wrap">
+  <span class="mono">Our Mission</span>
+  <h2>Community-based healing backed by science</h2>
+  <p class="lede">The Arts Wellness Lab will be the first community-based facility to team up scientists and artists in a collaborative space to research and create evidence-based programming that harnesses the power of art to measurably improve brain, body, and mental health.</p>
+  <p>Powered by music, theater, dance, visual arts, and writing—the groundbreaking Lab is located in the heart of Greenwich Village—a global hotbed for the arts, science, and creative innovation.</p>
+</section>
+
+<hr class="rule">
+
+<section class="mission section-alt">
+  <div class="wrap">
+    <span class="mono">Our Goals</span>
+    <h2>Ten objectives guiding the work.</h2>
+    <ol class="goals">
+      <li><p>Optimize existing research to create effective arts programs and therapeutic interventions.</p></li>
+      <li><p>Fast-track these programs for in-person community-based programs and virtual platforms.</p></li>
+      <li><p>Pursue new research.</p></li>
+      <li><p>Build a community of teaching artists to amplify and deliver the programs to populations in need, providing an economic engine to create careers in the arts.</p></li>
+      <li><p>Create policy that leads to sustainable funding and programming.</p></li>
+      <li><p>Document and collect stories of how doses of art are effective therapy for trauma, depression, PTSD, Parkinson's, dementia, Alzheimer's, cancer, autism, social isolation, and loneliness.</p></li>
+      <li><p>Build community through arts engagement, creating an infrastructure so every demographic in small towns and cities has the opportunity to heal and grow through the arts.</p></li>
+      <li><p>Lower health care costs.</p></li>
+      <li><p>Ease the burden on caregivers.</p></li>
+      <li><p>Have a preventive and empowering effect by building a cognitive reserve to adapt, improvise, and thrive throughout one's lifespan.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="cta" id="newsletter">
+  <div class="wrap">
+    <span class="mono">Stay Connected</span>
+    <h2>Follow the work</h2>
+    <p>One short email a month — new projects, findings, and open workshop dates.</p>
+    <form class="newsletter-form" name="newsletter" method="POST" netlify data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="newsletter">
+      <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+      <label for="email" class="sr-only">Email address</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="form-message" aria-live="polite"></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 The Arts Wellness Lab · Greenwich Village, New York</span>
+    <span class="mono">art that measurably heals</span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.newsletter-form').forEach(function (form) {
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var msg = form.nextElementSibling;
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString()
+    })
+      .then(function () {
+        msg.textContent = "Thanks — you're on the list. Watch your inbox.";
+        form.reset();
+      })
+      .catch(function () {
+        msg.textContent = "Something went wrong — please try again.";
+      });
+  });
+});
+</script>
+</body>
+</html>

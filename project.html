@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — The Arts Wellness Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+/* === Tokens === */
+:root {
+  --ink: #1b1e2b;
+  --ink-soft: #2c3044;
+  --parchment: #f3ecdc;
+  --parchment-soft: #e7ddc7;
+  --amber: #d9a23b;
+  --sage: #7e9683;
+  --crimson: #9a3b3b;
+  --max: 1080px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.6;
+}
+h1, h2, h3 { font-family: 'Fraunces', serif; margin: 0 0 0.4em; line-height: 1.05; }
+h1 { font-weight: 600; font-size: clamp(2.6rem, 6vw, 4.8rem); }
+h2 { font-weight: 600; font-size: clamp(1.8rem, 4vw, 2.8rem); }
+p { margin: 0 0 1em; }
+a { color: inherit; }
+.mono { font-family: 'JetBrains Mono', monospace; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.78rem; }
+.sr-only { position: absolute; left: -9999px; }
+
+/* === Layout helpers === */
+.wrap { max-width: var(--max); margin: 0 auto; padding-left: 1.5rem; padding-right: 1.5rem; }
+section { padding: 7.5rem 0; }
+
+/* === Header === */
+header {
+  background: var(--ink);
+  color: var(--parchment);
+  position: sticky; top: 0; z-index: 10;
+}
+.nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.1rem 1.5rem; max-width: var(--max); margin: 0 auto;
+}
+.logo { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.3rem; text-decoration: none; color: var(--parchment); }
+.nav-links { display: flex; gap: 1.6rem; }
+.nav-links a { text-decoration: none; color: var(--parchment-soft); font-size: 0.95rem; }
+.nav-links a:hover, .nav-links a.active { color: var(--amber); }
+
+/* === Hero === */
+.hero { background: var(--ink); color: var(--parchment); padding: 6rem 0 3rem; }
+.hero .eyebrow { color: var(--amber); }
+.hero h1 { margin-top: 0.6rem; }
+.hero p { max-width: 38ch; color: var(--parchment-soft); font-size: 1.1rem; margin-top: 1.2rem; }
+.hero.crimson { background: var(--crimson); }
+
+/* === Wave divider (tremor -> steady motif) === */
+.divider { display: block; width: 100%; height: 70px; }
+.divider path { fill: var(--ink); }
+.flip { transform: scaleY(-1); }
+.into-parchment path { fill: var(--parchment); }
+.into-ink path { fill: var(--ink); }
+.into-crimson path { fill: var(--crimson); }
+.before-ink { background: var(--ink); }
+.before-crimson { background: var(--crimson); }
+.before-sage { background: var(--sage); }
+.into-sage path { fill: var(--sage); }
+
+/* === Mission / general sections === */
+.mission { background: var(--parchment); }
+.mission .lede { font-size: 1.25rem; max-width: 42ch; }
+
+.pillars { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin-top: 2.5rem; }
+.pillar { background: var(--parchment-soft); border: 1px solid var(--ink); border-radius: 4px; padding: 1.6rem; }
+.pillar .mono { color: var(--crimson); display: block; margin-bottom: 0.6rem; }
+
+/* === Data strip (project page) === */
+.data-strip { background: var(--ink); color: var(--parchment); }
+.data-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-top: 2rem; }
+.data-grid .mono { color: var(--amber); display: block; margin-bottom: 0.3rem; }
+.data-grid .value { font-family: 'Fraunces', serif; font-size: 1.6rem; }
+
+/* === Quote === */
+.quote-block { background: var(--sage); color: var(--ink); }
+blockquote { font-family: 'Fraunces', serif; font-size: clamp(1.4rem, 3vw, 2rem); font-style: italic; max-width: 36ch; margin: 0 0 1rem; }
+cite { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-style: normal; }
+
+/* === CTA / Newsletter === */
+.cta { background: var(--crimson); color: var(--parchment); text-align: center; }
+.cta h2 { color: var(--parchment); }
+.cta p { max-width: 42ch; margin: 0 auto 1.6rem; color: var(--parchment-soft); }
+.newsletter-form { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; max-width: 420px; margin: 0 auto; }
+.newsletter-form input {
+  flex: 1; min-width: 200px; padding: 0.8rem 1rem; border: 1px solid var(--parchment-soft);
+  background: var(--ink); color: var(--parchment); border-radius: 4px; font-size: 1rem;
+}
+.newsletter-form input::placeholder { color: var(--parchment-soft); opacity: 0.6; }
+.newsletter-form button {
+  padding: 0.8rem 1.5rem; border: none; border-radius: 4px; background: var(--amber);
+  color: var(--ink); font-weight: 700; cursor: pointer; font-size: 1rem;
+}
+.newsletter-form button:hover { background: #e8b75a; }
+.form-message { margin-top: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; min-height: 1.2em; color: var(--amber); }
+
+/* === Footer === */
+footer { background: var(--ink); color: var(--parchment-soft); padding: 2.5rem 0; font-size: 0.85rem; }
+footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+
+@media (max-width: 600px) {
+  .nav-links { gap: 1rem; font-size: 0.85rem; }
+  section { padding: 5rem 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo">The Arts Wellness Lab</a>
+    <div class="nav-links">
+      <a href="index.html">Mission</a>
+      <a href="project.html" class="active">Projects</a>
+      <a href="#newsletter">Newsletter</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero crimson">
+  <div class="wrap">
+    <span class="mono eyebrow">Projects</span>
+    <h1>Turning art into measurable care.</h1>
+    <p>Across music, theater, dance, visual arts, and writing, we design and study evidence-based programs — delivered in the community and online — for people facing conditions from Parkinson's and dementia to depression, trauma, and isolation.</p>
+  </div>
+</section>
+<section class="mission wrap">
+  <span class="mono">Our Approach</span>
+  <h2>Built on research. Proven by measurement.</h2>
+  <p class="lede">Every program starts from existing science, is fast-tracked into community-based and virtual settings, and is measured so we can show — not just claim — that doses of art improve brain, body, and mental health.</p>
+  <p>We build a community of teaching artists to deliver these programs to the populations who need them most — lowering health care costs, easing the burden on caregivers, and giving every demographic the chance to heal and grow through the arts.</p>
+</section>
+<section class="mission wrap">
+  <span class="mono">Featured Project · Measure for Measure</span>
+  <h2>Iambic pentameter walks at the pace of a footstep.</h2>
+  <p class="lede">Our pilot program puts Shakespeare's verse to work for people living with Parkinson's: da-DUM, da-DUM, da-DUM — five beats per line, close to a natural stride. Rhythmic cueing is already used to help steady gait and speech; we extend that idea into full scenes, sonnets, and soliloquies, performed aloud and on your feet.</p>
+  <p>Participants don't just listen to a beat — they speak it, breathe it, and move to it, in a group setting that prioritizes expression over performance pressure.</p>
+</section>
+
+<section class="data-strip wrap">
+  <span class="mono" style="color:var(--amber)">The Program</span>
+  <h2 style="color:var(--parchment)">Twelve weeks, one company.</h2>
+  <div class="data-grid">
+    <div>
+      <span class="mono">Duration</span>
+      <span class="value">12 weeks</span>
+    </div>
+    <div>
+      <span class="mono">Sessions</span>
+      <span class="value">90 min / week</span>
+    </div>
+    <div>
+      <span class="mono">Cohort</span>
+      <span class="value">8–10 people</span>
+    </div>
+    <div>
+      <span class="mono">Led by</span>
+      <span class="value">Director + speech &amp; movement therapists</span>
+    </div>
+    <div>
+      <span class="mono">Texts</span>
+      <span class="value">Sonnets, As You Like It, The Tempest</span>
+    </div>
+    <div>
+      <span class="mono">Format</span>
+      <span class="value">Group scene work, no audition</span>
+    </div>
+  </div>
+</section>
+
+<section class="quote-block wrap">
+  <span class="mono">From the Pilot</span>
+  <blockquote>"By week six I wasn't thinking about my feet anymore. I was thinking about Prospero."</blockquote>
+  <cite>— Pilot cohort participant, session 9</cite>
+</section>
+
+<section class="cta" id="newsletter">
+  <div class="wrap">
+    <h2>Follow the work</h2>
+    <p>Get updates on Measure for Measure and future Arts Wellness Lab programs.</p>
+    <form class="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="newsletter">
+      <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+      <label for="email2" class="sr-only">Email address</label>
+      <input type="email" id="email2" name="email" placeholder="you@example.com" required>
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="form-message" aria-live="polite"></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>The Arts Wellness Lab</span>
+    <span class="mono">art that measurably heals</span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.newsletter-form').forEach(function (form) {
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var msg = form.nextElementSibling;
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString()
+    })
+      .then(function () {
+        msg.textContent = "Thanks — you're on the list. Watch your inbox.";
+        form.reset();
+      })
+      .catch(function () {
+        msg.textContent = "Something went wrong — please try again.";
+      });
+  });
+});
+
+</script>
+</body>
+</html>

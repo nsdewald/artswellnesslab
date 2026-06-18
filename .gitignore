@@ -1,0 +1,12 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Dependencies (not used now, but safe defaults)
+node_modules/
+
+# Netlify
+.netlify/
