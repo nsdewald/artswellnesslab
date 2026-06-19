@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Arts Wellness Lab — Art as evidence-based medicine for brain, body & mind</title>
 <meta name="description" content="The first community-based facility where scientists and artists collaborate to research and create evidence-based programming that harnesses the power of art to measurably improve brain, body, and mental health.">
-<meta name="theme-color" content="#4f46e5">
+<meta name="theme-color" content="#0f766e">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,8 +13,8 @@
 <style>
 /* === Tokens (indigo accent theme) === */
 :root {
-  --indigo: #4f46e5;
-  --indigo-dark: #3730a3;
+  --indigo: #0f766e;
+  --indigo-dark: #134e4a;
   --bg: #ffffff;
   --bg-alt: #f6f4f0;
   --ink: #1d1d1f;
@@ -88,7 +88,7 @@ header {
   padding: 4.5rem 0 3.5rem;
 }
 .hero .wrap { display: flex; flex-direction: column; align-items: center; }
-.hero .eyebrow { display: block; margin-bottom: 1.2rem; color: #a5b4fc; }
+.hero .eyebrow { display: block; margin-bottom: 1.2rem; color: #5eead4; }
 .hero h1 { max-width: 18ch; color: #fff; }
 .hero p { max-width: 46ch; color: rgba(255,255,255,0.9); font-size: 1.18rem; margin-top: 1.4rem; }
 
@@ -138,21 +138,22 @@ cite { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-style:
 
 /* === CTA / Newsletter === */
 .cta { background: var(--indigo); color: #fff; text-align: center; }
-.cta .mono { color: #a5b4fc; }
+.cta .mono { color: #5eead4; }
 .cta h2 { color: #fff; }
 .cta p { max-width: 46ch; margin: 0 auto 1.8rem; color: rgba(255,255,255,0.88); }
-.newsletter-form { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; max-width: 440px; margin: 0 auto; }
+.newsletter-form { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; max-width: 360px; margin: 0 auto; }
+.newsletter-form .full { grid-column: 1 / -1; }
 .newsletter-form input {
-  flex: 1; min-width: 200px; padding: 0.85rem 1rem; border: 1px solid rgba(255,255,255,0.45);
+  width: 100%; padding: 0.85rem 1rem; border: 1px solid rgba(255,255,255,0.45);
   background: rgba(255,255,255,0.08); color: #fff; border-radius: 2px; font-size: 1rem; font-family: inherit;
 }
 .newsletter-form input::placeholder { color: rgba(255,255,255,0.6); }
 .newsletter-form button {
-  padding: 0.85rem 1.6rem; border: none; border-radius: 2px; background: #fff;
+  width: 100%; padding: 0.85rem 1.6rem; border: none; border-radius: 2px; background: #fff;
   color: var(--indigo); font-weight: 600; cursor: pointer; font-size: 1rem; font-family: inherit;
 }
-.newsletter-form button:hover { background: #a5b4fc; }
-.form-message { margin-top: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; min-height: 1.2em; color: #a5b4fc; }
+.newsletter-form button:hover { background: #5eead4; }
+.form-message { margin-top: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; min-height: 1.2em; color: #5eead4; }
 
 /* === Footer === */
 footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: 3rem 0; font-size: 0.85rem; }
@@ -239,14 +240,18 @@ footer a:hover { color: #fff; }
 
 <section class="cta" id="newsletter">
   <div class="wrap">
-    <h2>Follow the work</h2>
-    <p>One short email a month — new projects, findings, and open workshop dates.</p>
+    <h2>Subscribe to our mailing list</h2>
+    <p></p>
     <form class="newsletter-form" name="newsletter" method="POST" netlify data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="newsletter">
       <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
-      <label for="email" class="sr-only">Email address</label>
-      <input type="email" id="email" name="email" placeholder="you@example.com" required>
-      <button type="submit">Subscribe</button>
+      <label for="first-name" class="sr-only">First name</label>
+      <input type="text" id="first-name" name="first-name" placeholder="First name" required>
+      <label for="last-name" class="sr-only">Last name</label>
+      <input type="text" id="last-name" name="last-name" placeholder="Last name" required>
+      <label for="email" class="sr-only full">Email address</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required class="full">
+      <button type="submit" class="full">Subscribe</button>
     </form>
     <p class="form-message" aria-live="polite"></p>
   </div>
