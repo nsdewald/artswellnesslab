@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Arts Wellness Lab — Art as evidence-based medicine for brain, body & mind</title>
 <meta name="description" content="The first community-based facility where scientists and artists collaborate to research and create evidence-based programming that harnesses the power of art to measurably improve brain, body, and mental health.">
-<meta name="theme-color" content="#b3741a">
+<meta name="theme-color" content="#4f46e5">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-/* === Tokens (Harvard-inspired: ochre on white, academic + arts) === */
+/* === Tokens (indigo accent theme) === */
 :root {
-  --ochre: #b3741a;
-  --ochre-dark: #8f5c12;
+  --indigo: #4f46e5;
+  --indigo-dark: #3730a3;
   --bg: #ffffff;
   --bg-alt: #f6f4f0;
   --ink: #1d1d1f;
@@ -41,7 +41,7 @@ p { margin: 0 0 1em; }
 a { color: inherit; }
 .mono {
   font-family: 'JetBrains Mono', monospace; letter-spacing: 0.12em;
-  text-transform: uppercase; font-size: 0.74rem; color: var(--ochre); font-weight: 500;
+  text-transform: uppercase; font-size: 0.74rem; color: var(--indigo); font-weight: 500;
 }
 .sr-only { position: absolute; left: -9999px; }
 
@@ -57,15 +57,17 @@ header {
   border-bottom: 1px solid var(--rule);
   position: sticky; top: 0; z-index: 10;
 }
-.brandbar { height: 5px; background: var(--ochre); }
+.brandbar { height: 5px; background: var(--indigo); }
 .nav {
   display: flex; align-items: center; justify-content: space-between;
   padding: 1.15rem 1.6rem; max-width: var(--max); margin: 0 auto;
 }
-.logo { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 1.3rem; text-decoration: none; color: var(--ink); letter-spacing: -0.01em; }
+.logo { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 1.3rem; text-decoration: none; color: var(--ink); letter-spacing: -0.01em; display: flex; align-items: center; gap: 0.5rem; }
+.logo-icon { width: 1.5rem; height: 1.5rem; color: var(--indigo); }
+@media (max-width: 700px) { .logo-icon { display: none; } }
 .nav-links { display: flex; gap: 1.8rem; align-items: center; }
 .nav-links a { text-decoration: none; color: var(--ink-soft); font-size: 0.92rem; font-weight: 500; padding-bottom: 2px; border-bottom: 2px solid transparent; }
-.nav-links a:hover, .nav-links a.active { color: var(--ochre); border-bottom-color: var(--ochre); }
+.nav-links a:hover, .nav-links a.active { color: var(--indigo); border-bottom-color: var(--indigo); }
 
 /* === Hero (full-bleed image with scrim) === */
 .hero {
@@ -77,15 +79,24 @@ header {
     url('images/hero.png');
   background-size: cover;
   background-position: center right;
-  border-bottom: 4px solid var(--ochre);
+  border-bottom: 4px solid var(--indigo);
   display: flex;
-  align-items: flex-end;
-  min-height: 72vh;
-  padding: 5.5rem 0 4rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 55vh;
+  padding: 4.5rem 0 3.5rem;
 }
-.hero .eyebrow { display: block; margin-bottom: 1.2rem; color: #e9cd94; }
+.hero .wrap { display: flex; flex-direction: column; align-items: center; }
+.hero .eyebrow { display: block; margin-bottom: 1.2rem; color: #a5b4fc; }
 .hero h1 { max-width: 18ch; color: #fff; }
 .hero p { max-width: 46ch; color: rgba(255,255,255,0.9); font-size: 1.18rem; margin-top: 1.4rem; }
+
+/* === Mission split layout === */
+.mission-split { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 3rem; }
+.mission-icon { width: 280px; flex-shrink: 0; opacity: 0.2; }
+.mission-icon svg { width: 100%; height: auto; display: block; }
+@media (max-width: 700px) { .mission-split { grid-template-columns: 1fr; } .mission-icon { display: none; } }
 
 /* === Mission / general sections === */
 .mission .lede { font-size: 1.3rem; max-width: 52ch; color: var(--ink); font-family: 'Fraunces', Georgia, serif; font-weight: 400; line-height: 1.45; }
@@ -106,19 +117,28 @@ header {
 }
 .goals li::before {
   content: counter(goal, decimal-leading-zero);
-  font-family: 'JetBrains Mono', monospace; color: var(--ochre); font-size: 0.9rem;
+  font-family: 'JetBrains Mono', monospace; color: var(--indigo); font-size: 0.9rem;
   flex-shrink: 0; padding-top: 0.25rem; min-width: 2.4ch; font-weight: 500;
 }
 .goals li p { margin: 0; font-size: 1.02rem; color: var(--ink); }
 
+/* === Theater banner === */
+.theater-banner {
+  width: 100%;
+  height: 38vh;
+  background: url('images/theater.jpg') center 60%/cover no-repeat;
+  margin: 3rem 0;
+}
+.goals-continued { counter-reset: goal 5; margin-top: 0; }
+
 /* === Quote === */
 .quote-block { background: var(--bg-alt); }
-blockquote { font-family: 'Fraunces', Georgia, serif; font-size: clamp(1.5rem, 3.2vw, 2.2rem); font-weight: 400; font-style: normal; max-width: 28ch; margin: 1.5rem 0 1.2rem; line-height: 1.3; border-left: 3px solid var(--ochre); padding-left: 1.4rem; }
+blockquote { font-family: 'Fraunces', Georgia, serif; font-size: clamp(1.5rem, 3.2vw, 2.2rem); font-weight: 400; font-style: normal; max-width: 28ch; margin: 1.5rem 0 1.2rem; line-height: 1.3; border-left: 3px solid var(--indigo); padding-left: 1.4rem; }
 cite { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-style: normal; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.08em; }
 
 /* === CTA / Newsletter === */
-.cta { background: var(--ochre); color: #fff; text-align: center; }
-.cta .mono { color: #e9cd94; }
+.cta { background: var(--indigo); color: #fff; text-align: center; }
+.cta .mono { color: #a5b4fc; }
 .cta h2 { color: #fff; }
 .cta p { max-width: 46ch; margin: 0 auto 1.8rem; color: rgba(255,255,255,0.88); }
 .newsletter-form { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; max-width: 440px; margin: 0 auto; }
@@ -129,10 +149,10 @@ cite { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-style:
 .newsletter-form input::placeholder { color: rgba(255,255,255,0.6); }
 .newsletter-form button {
   padding: 0.85rem 1.6rem; border: none; border-radius: 2px; background: #fff;
-  color: var(--ochre); font-weight: 600; cursor: pointer; font-size: 1rem; font-family: inherit;
+  color: var(--indigo); font-weight: 600; cursor: pointer; font-size: 1rem; font-family: inherit;
 }
-.newsletter-form button:hover { background: #e9cd94; }
-.form-message { margin-top: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; min-height: 1.2em; color: #e9cd94; }
+.newsletter-form button:hover { background: #a5b4fc; }
+.form-message { margin-top: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; min-height: 1.2em; color: #a5b4fc; }
 
 /* === Footer === */
 footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: 3rem 0; font-size: 0.85rem; }
@@ -155,7 +175,9 @@ footer a:hover { color: #fff; }
 <header>
   <div class="brandbar"></div>
   <nav class="nav">
-    <a href="index.html" class="logo">The Arts Wellness Lab</a>
+    <a href="index.html" class="logo">
+      <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7.828 13.07A3 3 0 0 1 12 8.764a3 3 0 0 1 4.172 4.306l-3.447 3.62a1 1 0 0 1-1.449 0z"/></svg>Arts Wellness Lab
+    </a>
     <div class="nav-links">
       <a href="index.html" class="active">Mission</a>
       <a href="about.html">About</a>
@@ -166,24 +188,34 @@ footer a:hover { color: #fff; }
 
 <section class="hero">
   <div class="wrap">
-    <span class="mono eyebrow"></span>
-    <h1>Art is medicine.</h1>
-    <p>Where scientists and artists work side by side to research and create evidence-based programming powered by music, theater, dance, visual arts, and writing that measurably improves brain, body, and mental health.</p>
+    <h1>Art As Medicine</h1>
+    <p>Uniting scientists and artists to research and create evidence-based programming that harnesses the power of art to measurably improve brain, body, and mental health.</p>
   </div>
 </section>
 
-<section class="mission wrap">
-  <span class="mono">Our Mission</span>
-  <h2>Community-based healing backed by science</h2>
-  <p class="lede">The Arts Wellness Lab will be the first community-based facility to team up scientists and artists in a collaborative space to research and create evidence-based programming that harnesses the power of art to measurably improve brain, body, and mental health.</p>
-  <p>Powered by music, theater, dance, visual arts, and writing—the groundbreaking Lab is located in the heart of Greenwich Village—a global hotbed for the arts, science, and creative innovation.</p>
+<section class="mission wrap mission-split">
+  <div class="mission-text">
+    <h2>Community-based healing backed by science</h2>
+    <p>Powered by music, theater, dance, visual arts, and writing—the groundbreaking Lab is located in the heart of Greenwich Village—a global hotbed for the arts, science, and creative innovation.</p>
+  </div>
+  <div class="mission-icon" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--indigo)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 18V5" />
+      <path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4" />
+      <path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5" />
+      <path d="M17.997 5.125a4 4 0 0 1 2.526 5.77" />
+      <path d="M18 18a4 4 0 0 0 2-7.464" />
+      <path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517" />
+      <path d="M6 18a4 4 0 0 1-2-7.464" />
+      <path d="M6.003 5.125a4 4 0 0 0-2.526 5.77" />
+    </svg>
+  </div>
 </section>
 
 <hr class="rule">
 
 <section class="mission section-alt">
   <div class="wrap">
-    <span class="mono">Our Goals</span>
     <h2>Ten objectives guiding the work.</h2>
     <ol class="goals">
       <li><p>Optimize existing research to create effective arts programs and therapeutic interventions.</p></li>
@@ -191,6 +223,11 @@ footer a:hover { color: #fff; }
       <li><p>Pursue new research.</p></li>
       <li><p>Build a community of teaching artists to amplify and deliver the programs to populations in need, providing an economic engine to create careers in the arts.</p></li>
       <li><p>Create policy that leads to sustainable funding and programming.</p></li>
+    </ol>
+  </div>
+  <div class="theater-banner"></div>
+  <div class="wrap">
+    <ol class="goals goals-continued">
       <li><p>Document and collect stories of how doses of art are effective therapy for trauma, depression, PTSD, Parkinson's, dementia, Alzheimer's, cancer, autism, social isolation, and loneliness.</p></li>
       <li><p>Build community through arts engagement, creating an infrastructure so every demographic in small towns and cities has the opportunity to heal and grow through the arts.</p></li>
       <li><p>Lower health care costs.</p></li>
@@ -202,7 +239,6 @@ footer a:hover { color: #fff; }
 
 <section class="cta" id="newsletter">
   <div class="wrap">
-    <span class="mono">Stay Connected</span>
     <h2>Follow the work</h2>
     <p>One short email a month — new projects, findings, and open workshop dates.</p>
     <form class="newsletter-form" name="newsletter" method="POST" netlify data-netlify="true" netlify-honeypot="bot-field">
@@ -219,7 +255,6 @@ footer a:hover { color: #fff; }
 <footer>
   <div class="wrap">
     <span>© 2026 The Arts Wellness Lab · Greenwich Village, New York</span>
-    <span class="mono">art that measurably heals</span>
   </div>
 </footer>
 

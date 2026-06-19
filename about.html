@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About — The Arts Wellness Lab</title>
 <meta name="description" content="About The Arts Wellness Lab — a community-based facility where scientists and artists collaborate on evidence-based programming that improves brain, body, and mental health.">
-<meta name="theme-color" content="#b3741a">
+<meta name="theme-color" content="#4f46e5">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-/* === Tokens (Harvard-inspired: ochre on white, academic + arts) === */
+/* === Tokens (indigo accent theme) === */
 :root {
-  --ochre: #b3741a;
-  --ochre-dark: #8f5c12;
+  --indigo: #4f46e5;
+  --indigo-dark: #3730a3;
   --bg: #ffffff;
   --bg-alt: #f6f4f0;
   --ink: #1d1d1f;
@@ -41,7 +41,7 @@ p { margin: 0 0 1em; }
 a { color: inherit; }
 .mono {
   font-family: 'JetBrains Mono', monospace; letter-spacing: 0.12em;
-  text-transform: uppercase; font-size: 0.74rem; color: var(--ochre); font-weight: 500;
+  text-transform: uppercase; font-size: 0.74rem; color: var(--indigo); font-weight: 500;
 }
 .sr-only { position: absolute; left: -9999px; }
 
@@ -57,36 +57,42 @@ header {
   border-bottom: 1px solid var(--rule);
   position: sticky; top: 0; z-index: 10;
 }
-.brandbar { height: 5px; background: var(--ochre); }
+.brandbar { height: 5px; background: var(--indigo); }
 .nav {
   display: flex; align-items: center; justify-content: space-between;
   padding: 1.15rem 1.6rem; max-width: var(--max); margin: 0 auto;
 }
-.logo { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 1.3rem; text-decoration: none; color: var(--ink); letter-spacing: -0.01em; }
+.logo { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 1.3rem; text-decoration: none; color: var(--ink); letter-spacing: -0.01em; display: flex; align-items: center; gap: 0.5rem; }
+.logo-icon { width: 1.5rem; height: 1.5rem; color: var(--indigo); }
+@media (max-width: 700px) { .logo-icon { display: none; } }
 .nav-links { display: flex; gap: 1.8rem; align-items: center; }
 .nav-links a { text-decoration: none; color: var(--ink-soft); font-size: 0.92rem; font-weight: 500; padding-bottom: 2px; border-bottom: 2px solid transparent; }
-.nav-links a:hover, .nav-links a.active { color: var(--ochre); border-bottom-color: var(--ochre); }
+.nav-links a:hover, .nav-links a.active { color: var(--indigo); border-bottom-color: var(--indigo); }
 
-/* === Hero (split: text + Shakespeare bust) === */
-.hero { background: var(--bg); color: var(--ink); border-bottom: 1px solid var(--rule); }
-.hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3rem; align-items: stretch; max-width: var(--max); margin: 0 auto; padding: 0 1.6rem; }
-.hero-text { padding: 5.5rem 0 4rem; display: flex; flex-direction: column; justify-content: center; }
-.hero .eyebrow { display: block; margin-bottom: 1.2rem; }
-.hero h1 { max-width: 16ch; }
-.hero p { max-width: 46ch; color: var(--ink-soft); font-size: 1.18rem; margin-top: 1.4rem; }
-.hero-media {
-  position: relative;
-  display: flex; align-items: flex-end; justify-content: center;
-  background: linear-gradient(160deg, #efece6 0%, #e4ded4 100%);
-  border-left: 1px solid var(--rule); border-right: 1px solid var(--rule);
+/* === Hero === */
+.hero {
+  color: #fff;
+  background-color: #0c0c0e;
+  background-image:
+    linear-gradient(rgba(10,10,12,0.62), rgba(10,10,12,0.62)),
+    url('images/art.jpg');
+  background-size: cover;
+  background-position: center;
+  border-bottom: 4px solid var(--indigo);
 }
-.hero-media img { display: block; max-height: 460px; width: auto; max-width: 100%; }
+.hero .wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  padding: 6rem 0 5rem;
+}
+.hero h1 { color: #fff; max-width: 14ch; }
+.hero p { color: rgba(255,255,255,0.85); font-size: 1.18rem; max-width: 44ch; margin-top: 5rem; }
 
-@media (max-width: 820px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 0; }
-  .hero-text { padding: 3.5rem 0 2rem; order: 1; }
-  .hero-media { order: 2; padding-top: 2rem; border-left: none; border-right: none; border-top: 1px solid var(--rule); }
-  .hero-media img { max-height: 340px; }
+@media (max-width: 640px) {
+  .hero .wrap { grid-template-columns: 1fr; gap: 1.5rem; padding: 4rem 0; }
+  .hero p { margin-top: 0; max-width: 90%; }
 }
 
 /* === About body === */
@@ -100,7 +106,7 @@ header {
 .contact-grid .mono { display: block; margin-bottom: 0.5rem; }
 .contact-grid .value { font-family: 'Fraunces', Georgia, serif; font-size: 1.4rem; color: var(--ink); }
 .contact-grid a.value { text-decoration: none; }
-.contact-grid a.value:hover { color: var(--ochre); }
+.contact-grid a.value:hover { color: var(--indigo); }
 .placeholder-note { font-size: 0.82rem; color: var(--ink-soft); margin-top: 0.35rem; font-style: italic; }
 
 /* === Footer === */
@@ -121,7 +127,9 @@ footer .mono { color: rgba(255,255,255,0.55); }
 <header>
   <div class="brandbar"></div>
   <nav class="nav">
-    <a href="index.html" class="logo">The Arts Wellness Lab</a>
+    <a href="index.html" class="logo">
+      <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7.828 13.07A3 3 0 0 1 12 8.764a3 3 0 0 1 4.172 4.306l-3.447 3.62a1 1 0 0 1-1.449 0z"/></svg>Arts Wellness Lab
+    </a>
     <div class="nav-links">
       <a href="index.html">Mission</a>
       <a href="about.html" class="active">About</a>
@@ -131,20 +139,13 @@ footer .mono { color: rgba(255,255,255,0.55); }
 </header>
 
 <section class="hero">
-  <div class="hero-grid">
-    <div class="hero-text">
-      <span class="mono eyebrow">About</span>
-      <h1>A lab where science and the arts meet.</h1>
-      <p>We bring researchers and artists into one space to study, design, and deliver programming that measurably improves brain, body, and mental health.</p>
-    </div>
-    <div class="hero-media">
-      <img src="images/shakespeare-bust.jpg" alt="A white porcelain bust of William Shakespeare on a pedestal.">
-    </div>
+  <div class="wrap">
+    <h1>A lab where science and the arts meet.</h1>
+    <p>We bring researchers and artists into one space to study, design, and deliver programming that measurably improves brain, body, and mental health.</p>
   </div>
 </section>
 
 <section class="about wrap">
-  <span class="mono">Who We Are</span>
   <h2>Evidence-based art, made in the community.</h2>
   <p class="lede">The Arts Wellness Lab is a community-based facility in Greenwich Village where scientists and artists collaborate to research and create evidence-based programming—powered by music, theater, dance, visual arts, and writing.</p>
   <p>Our work spans the full arc from research to delivery: optimizing existing science into effective interventions, fast-tracking those programs into community and virtual settings, and measuring outcomes so we can show—not just claim—that doses of art improve health. Along the way we build a community of teaching artists, lower health care costs, ease the burden on caregivers, and give every demographic the chance to heal and grow through the arts.</p>
@@ -152,22 +153,18 @@ footer .mono { color: rgba(255,255,255,0.55); }
 
 <section class="about section-alt">
   <div class="wrap">
-    <span class="mono">Get In Touch</span>
     <h2>Contact the Lab</h2>
     <p>We'd love to hear from researchers, artists, partners, and participants. Reach out and a member of our team will respond.</p>
     <div class="contact-grid">
       <div>
-        <span class="mono">Phone</span>
         <a class="value" href="tel:+12125550123">(212) 555-0123</a>
         <p class="placeholder-note">Placeholder — update with real number</p>
       </div>
       <div>
-        <span class="mono">Email</span>
         <a class="value" href="mailto:hello@artswellnesslab.org">hello@artswellnesslab.org</a>
         <p class="placeholder-note">Placeholder — update with real address</p>
       </div>
       <div>
-        <span class="mono">Location</span>
         <span class="value">Greenwich Village, NY</span>
       </div>
     </div>
@@ -177,7 +174,6 @@ footer .mono { color: rgba(255,255,255,0.55); }
 <footer>
   <div class="wrap">
     <span>© 2026 The Arts Wellness Lab · Greenwich Village, New York</span>
-    <span class="mono">art that measurably heals</span>
   </div>
 </footer>
 

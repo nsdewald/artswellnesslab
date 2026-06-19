@@ -50,7 +50,9 @@ header {
   display: flex; align-items: center; justify-content: space-between;
   padding: 1.1rem 1.5rem; max-width: var(--max); margin: 0 auto;
 }
-.logo { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.3rem; text-decoration: none; color: var(--parchment); }
+.logo { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.3rem; text-decoration: none; color: var(--parchment); display: flex; align-items: center; gap: 0.5rem; }
+.logo-icon { width: 1.5rem; height: 1.5rem; color: var(--indigo); }
+@media (max-width: 700px) { .logo-icon { display: none; } }
 .nav-links { display: flex; gap: 1.6rem; }
 .nav-links a { text-decoration: none; color: var(--parchment-soft); font-size: 0.95rem; }
 .nav-links a:hover, .nav-links a.active { color: var(--amber); }
@@ -129,7 +131,9 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 
 <header>
   <nav class="nav">
-    <a href="index.html" class="logo">The Arts Wellness Lab</a>
+    <a href="index.html" class="logo">
+      <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7.828 13.07A3 3 0 0 1 12 8.764a3 3 0 0 1 4.172 4.306l-3.447 3.62a1 1 0 0 1-1.449 0z"/></svg>Arts Wellness Lab
+    </a>
     <div class="nav-links">
       <a href="index.html">Mission</a>
       <a href="project.html" class="active">Projects</a>
@@ -140,57 +144,46 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 
 <section class="hero crimson">
   <div class="wrap">
-    <span class="mono eyebrow">Projects</span>
     <h1>Turning art into measurable care.</h1>
     <p>Across music, theater, dance, visual arts, and writing, we design and study evidence-based programs — delivered in the community and online — for people facing conditions from Parkinson's and dementia to depression, trauma, and isolation.</p>
   </div>
 </section>
 <section class="mission wrap">
-  <span class="mono">Our Approach</span>
   <h2>Built on research. Proven by measurement.</h2>
   <p class="lede">Every program starts from existing science, is fast-tracked into community-based and virtual settings, and is measured so we can show — not just claim — that doses of art improve brain, body, and mental health.</p>
   <p>We build a community of teaching artists to deliver these programs to the populations who need them most — lowering health care costs, easing the burden on caregivers, and giving every demographic the chance to heal and grow through the arts.</p>
 </section>
 <section class="mission wrap">
-  <span class="mono">Featured Project · Measure for Measure</span>
   <h2>Iambic pentameter walks at the pace of a footstep.</h2>
   <p class="lede">Our pilot program puts Shakespeare's verse to work for people living with Parkinson's: da-DUM, da-DUM, da-DUM — five beats per line, close to a natural stride. Rhythmic cueing is already used to help steady gait and speech; we extend that idea into full scenes, sonnets, and soliloquies, performed aloud and on your feet.</p>
   <p>Participants don't just listen to a beat — they speak it, breathe it, and move to it, in a group setting that prioritizes expression over performance pressure.</p>
 </section>
 
 <section class="data-strip wrap">
-  <span class="mono" style="color:var(--amber)">The Program</span>
   <h2 style="color:var(--parchment)">Twelve weeks, one company.</h2>
   <div class="data-grid">
     <div>
-      <span class="mono">Duration</span>
       <span class="value">12 weeks</span>
     </div>
     <div>
-      <span class="mono">Sessions</span>
       <span class="value">90 min / week</span>
     </div>
     <div>
-      <span class="mono">Cohort</span>
       <span class="value">8–10 people</span>
     </div>
     <div>
-      <span class="mono">Led by</span>
       <span class="value">Director + speech &amp; movement therapists</span>
     </div>
     <div>
-      <span class="mono">Texts</span>
       <span class="value">Sonnets, As You Like It, The Tempest</span>
     </div>
     <div>
-      <span class="mono">Format</span>
       <span class="value">Group scene work, no audition</span>
     </div>
   </div>
 </section>
 
 <section class="quote-block wrap">
-  <span class="mono">From the Pilot</span>
   <blockquote>"By week six I wasn't thinking about my feet anymore. I was thinking about Prospero."</blockquote>
   <cite>— Pilot cohort participant, session 9</cite>
 </section>
@@ -213,7 +206,6 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 <footer>
   <div class="wrap">
     <span>The Arts Wellness Lab</span>
-    <span class="mono">art that measurably heals</span>
   </div>
 </footer>
 
