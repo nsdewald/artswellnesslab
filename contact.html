@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About — The Arts Wellness Lab</title>
-<meta name="description" content="About The Arts Wellness Lab — a community-based facility where scientists and artists collaborate on evidence-based programming that improves brain, body, and mental health.">
+<title>Contact — The Arts Wellness Lab</title>
+<meta name="description" content="Subscribe to The Arts Wellness Lab mailing list and get in touch with our team.">
 <meta name="theme-color" content="#0f766e">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,7 +48,6 @@ a { color: inherit; }
 /* === Layout helpers === */
 .wrap { max-width: var(--max); margin: 0 auto; padding-left: 1.6rem; padding-right: 1.6rem; }
 section { padding: 6rem 0; }
-.rule { border: none; border-top: 1px solid var(--rule); max-width: var(--max); margin: 0 auto; }
 
 /* === Header === */
 header {
@@ -69,43 +68,9 @@ header {
 .nav-links a { text-decoration: none; color: var(--ink-soft); font-size: 0.92rem; font-weight: 500; padding-bottom: 2px; border-bottom: 2px solid transparent; }
 .nav-links a:hover, .nav-links a.active { color: var(--indigo); border-bottom-color: var(--indigo); }
 
-/* === Hero (dialogue) === */
-.hero {
-  color: #fff;
-  background-color: #0c0c0e;
-  background-image:
-    linear-gradient(rgba(10,10,12,0.78), rgba(10,10,12,0.78)),
-    url('images/art.jpg');
-  background-size: cover;
-  background-position: center;
-  border-bottom: 4px solid var(--indigo);
-}
-.hero .wrap { padding: 4rem 1.6rem; max-width: 920px; }
-.hero h1 {
-  font-family: 'Fraunces', Georgia, serif; font-size: clamp(1.4rem, 2.6vw, 1.9rem);
-  font-weight: 400; font-style: italic; color: rgba(255,255,255,0.55); margin: 0 0 1.4rem;
-}
-.dialogue .line { font-family: 'Fraunces', Georgia, serif; line-height: 1.16; margin: 0 0 1.6rem; }
-.dialogue .line.q { font-size: clamp(2rem, 5vw, 3.6rem); color: #fff; font-weight: 500; max-width: 22ch; }
-.dialogue .line.a { font-size: clamp(2rem, 5vw, 3.6rem); color: #fff; font-weight: 500; text-align: right; margin-top: 0; }
-
-/* === About body (editorial) === */
-.article { max-width: 64ch; margin: 0 auto; }
-.article p { font-size: 1.2rem; color: var(--ink); margin: 0 0 1.6rem; line-height: 1.7; }
-.article p.lede { font-family: 'Fraunces', Georgia, serif; font-size: 1.5rem; font-weight: 400; line-height: 1.45; }
-
-/* === Pullquote === */
-.pullquote { background: var(--bg-alt); text-align: center; }
-.pullquote blockquote {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: clamp(1.7rem, 3.6vw, 2.5rem);
-  font-weight: 400; font-style: normal; line-height: 1.3;
-  max-width: 26ch; margin: 0 auto;
-  color: var(--indigo);
-}
-
-/* === CTA / Newsletter === */
+/* === Newsletter (primary) === */
 .cta { background: var(--indigo); color: #fff; text-align: center; }
+.cta .mono { color: #5eead4; display: block; margin-bottom: 1rem; }
 .cta h2 { color: #fff; }
 .cta p { max-width: 46ch; margin: 0 auto 1.8rem; color: rgba(255,255,255,0.88); }
 .newsletter-form { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; max-width: 360px; margin: 0 auto; }
@@ -122,10 +87,23 @@ header {
 .newsletter-form button:hover { background: #5eead4; }
 .form-message { margin-top: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; min-height: 1.2em; color: #5eead4; }
 
+/* === Contact details === */
+.contact .mono { display: block; margin-bottom: 0.9rem; }
+.contact h2 { max-width: 18ch; }
+.contact-grid { display: grid; gap: 0; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 2.5rem; border-top: 1px solid var(--rule); }
+.contact-grid > div { padding: 1.8rem 1.5rem 1.8rem 0; border-bottom: 1px solid var(--rule); }
+.contact-grid .mono { display: block; margin-bottom: 0.5rem; }
+.contact-grid .value { font-family: 'Fraunces', Georgia, serif; font-size: 1.4rem; color: var(--ink); }
+.contact-grid a.value { text-decoration: none; }
+.contact-grid a.value:hover { color: var(--indigo); }
+.placeholder-note { font-size: 0.82rem; color: var(--ink-soft); margin-top: 0.35rem; font-style: italic; }
+
 /* === Footer === */
 footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: 3rem 0; font-size: 0.85rem; }
 footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; align-items: center; }
 footer .mono { color: rgba(255,255,255,0.55); }
+footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+footer a:hover { color: #fff; }
 
 @media (max-width: 700px) {
   .nav-links { display: none; }
@@ -145,46 +123,15 @@ footer .mono { color: rgba(255,255,255,0.55); }
     </a>
     <div class="nav-links">
       <a href="index.html">Mission</a>
-      <a href="about.html" class="active">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
     </div>
   </nav>
 </header>
 
-<section class="hero">
-  <div class="wrap">
-    <h1>Our Story</h1>
-    <div class="dialogue">
-      <p class="line q">&ldquo;I&rsquo;m going to turn you into the greatest athlete in the world&mdash; a Shakespearean actor.&rdquo;</p>
-      <p class="line a">&ldquo;Okay, let&rsquo;s do it.&rdquo;</p>
-    </div>
-  </div>
-</section>
-
-<section class="wrap">
-  <div class="article">
-    <p class="lede">That challenge between Kurt Brungardt and his graduate-school mentor at Columbia University, Daniel Sklar, launched the Arts Wellness Lab. Sklar had been diagnosed with Parkinson&rsquo;s and was looking for new ways to slow its progression. He reached out to Brungardt&mdash;who has an eclectic background in fitness, sports, and theater&mdash;for help.</p>
-    <p>The next step was designing a program. Having studied theater at NYU, Brungardt had firsthand experience with the extensive, holistic curriculum implemented at leading acting conservatories. He consulted master teachers from NYU, Juilliard, RADA, Yale, and private acting schools for their advice on distilling the techniques, exercises, and creative tools that would deliver the most powerful results&mdash;and activate all the areas Parkinson&rsquo;s was trying to diminish.</p>
-    <p>The quest then received a series of grants from the Parkinson&rsquo;s Foundation, which led to the creation of <em>Shakespeare for Parkinson&rsquo;s</em>, now in its fifth year. The program offers the Shakespeare Workout and an innovative theater troupe, which uses the techniques and concepts of devised theater, spending a year on a play, culminating in a performance piece.</p>
-  </div>
-</section>
-
-<section class="pullquote">
-  <div class="wrap">
-    <blockquote>The comprehensive nature of the program&rsquo;s training and creating is &ldquo;total art.&rdquo;</blockquote>
-  </div>
-</section>
-
-<section class="wrap">
-  <div class="article">
-    <p>In a safe and caring environment, &ldquo;total art&rdquo; requires acting, singing, dance, music, the visual arts, and writing. We observed how this multidisciplinary approach allowed members of the program to thrive. It also revealed how members might be drawn to&mdash;or receive more benefit from&mdash;a particular art form.</p>
-    <p>These observations made us realize the need to create the Arts Wellness Lab, where all these art forms could be offered, alongside multidisciplinary programs like Shakespeare. The Lab integrates teaching, research, performance, and policymaking. Our mission is to offer an arts wellness platform of classes and programs where everyone can engage with amazing teaching artists, benefit from the latest research, and experience community&mdash;in person and online&mdash;to thrive throughout their lifespan.</p>
-    <p>The Lab sits at the intersection of health, community, science, the arts, policy-making, and technology.</p>
-  </div>
-</section>
-
 <section class="cta">
   <div class="wrap">
+    <span class="mono">Stay in Touch</span>
     <h2>Subscribe to our mailing list</h2>
     <p>Get updates on classes, programs, research, and performances from The Arts Wellness Lab.</p>
     <form class="newsletter-form" name="newsletter" method="POST" netlify data-netlify="true" netlify-honeypot="bot-field">
@@ -199,6 +146,28 @@ footer .mono { color: rgba(255,255,255,0.55); }
       <button type="submit" class="full">Subscribe</button>
     </form>
     <p class="form-message" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="contact wrap">
+  <span class="mono">Reach the Lab</span>
+  <h2>We'd love to hear from you.</h2>
+  <p>Researchers, artists, partners, and participants&mdash;reach out and a member of our team will respond.</p>
+  <div class="contact-grid">
+    <div>
+      <span class="mono">Phone</span>
+      <a class="value" href="tel:+12125550123">(212) 555-0123</a>
+      <p class="placeholder-note">Placeholder — update with real number</p>
+    </div>
+    <div>
+      <span class="mono">Email</span>
+      <a class="value" href="mailto:hello@artswellnesslab.org">hello@artswellnesslab.org</a>
+      <p class="placeholder-note">Placeholder — update with real address</p>
+    </div>
+    <div>
+      <span class="mono">Location</span>
+      <span class="value">Greenwich Village, NY</span>
+    </div>
   </div>
 </section>
 
