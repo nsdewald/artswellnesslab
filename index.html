@@ -62,9 +62,7 @@ header {
   display: flex; align-items: center; justify-content: space-between;
   padding: 1.15rem 1.6rem; max-width: var(--max); margin: 0 auto;
 }
-.logo { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 1.3rem; text-decoration: none; color: var(--ink); letter-spacing: -0.01em; display: flex; align-items: center; gap: 0.5rem; }
-.logo-icon { width: 1.5rem; height: 1.5rem; color: var(--indigo); }
-@media (max-width: 700px) { .logo-icon { display: none; } }
+.logo { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.15rem; line-height: 1.02; text-transform: uppercase; letter-spacing: 0.005em; text-decoration: none; color: var(--ink); display: flex; flex-direction: column; }
 .nav-links { display: flex; gap: 1.8rem; align-items: center; }
 .nav-links a { text-decoration: none; color: var(--ink-soft); font-size: 0.92rem; font-weight: 500; padding-bottom: 2px; border-bottom: 2px solid transparent; }
 .nav-links a:hover, .nav-links a.active { color: var(--indigo); border-bottom-color: var(--indigo); }
@@ -188,7 +186,7 @@ footer a:hover { color: #fff; }
   <div class="brandbar"></div>
   <nav class="nav">
     <a href="index.html" class="logo">
-      <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7.828 13.07A3 3 0 0 1 12 8.764a3 3 0 0 1 4.172 4.306l-3.447 3.62a1 1 0 0 1-1.449 0z"/></svg>Arts Wellness Lab
+      <span>Arts</span><span>Wellness</span><span>Lab</span>
     </a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -210,7 +208,7 @@ footer a:hover { color: #fff; }
 
 <section class="mission wrap mission-split">
   <div class="mission-text">
-    <h2>Community-based healing backed by science</h2>
+    <h2>The Lab sits at the intersection of health, art, science, community and technology.</h2>
     <p>Powered by music, theater, dance, visual arts, and writing—the groundbreaking Lab is located in the heart of Greenwich Village—a global hotbed for the arts, science, and creative innovation.</p>
   </div>
   <div class="mission-icon" aria-hidden="true">
