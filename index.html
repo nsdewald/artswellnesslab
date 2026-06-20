@@ -68,6 +68,8 @@ header {
 .nav-links { display: flex; gap: 1.8rem; align-items: center; }
 .nav-links a { text-decoration: none; color: var(--ink-soft); font-size: 0.92rem; font-weight: 500; padding-bottom: 2px; border-bottom: 2px solid transparent; }
 .nav-links a:hover, .nav-links a.active { color: var(--indigo); border-bottom-color: var(--indigo); }
+.nav-toggle { display: none; background: none; border: 0; padding: 0.4rem; margin: -0.4rem 0; cursor: pointer; color: var(--ink); }
+.nav-toggle svg { width: 1.7rem; height: 1.7rem; display: block; }
 
 /* === Hero (full-bleed image with scrim) === */
 .hero {
@@ -163,7 +165,16 @@ footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
 footer a:hover { color: #fff; }
 
 @media (max-width: 700px) {
-  .nav-links { display: none; }
+  .nav-toggle { display: inline-flex; align-items: center; }
+  .nav-links {
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--bg); border-bottom: 1px solid var(--rule);
+    padding: 0.4rem 1.6rem 1rem; box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 0.8rem 0; font-size: 1rem; border-bottom: 1px solid var(--rule); }
+  .nav-links a:last-child { border-bottom: none; }
   section { padding: 4rem 0; }
   .goals { grid-template-columns: 1fr; }
 }
@@ -179,7 +190,10 @@ footer a:hover { color: #fff; }
     <a href="index.html" class="logo">
       <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7.828 13.07A3 3 0 0 1 12 8.764a3 3 0 0 1 4.172 4.306l-3.447 3.62a1 1 0 0 1-1.449 0z"/></svg>Arts Wellness Lab
     </a>
-    <div class="nav-links">
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div class="nav-links" id="nav-links">
       <a href="index.html" class="active">Mission</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
@@ -264,6 +278,17 @@ footer a:hover { color: #fff; }
 </footer>
 
 <script>
+(function () {
+  var toggle = document.querySelector('.nav-toggle');
+  var links = document.getElementById('nav-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', function () {
+      var open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+  }
+})();
+
 document.querySelectorAll('.newsletter-form').forEach(function (form) {
   form.addEventListener('submit', function (e) {
     e.preventDefault();
